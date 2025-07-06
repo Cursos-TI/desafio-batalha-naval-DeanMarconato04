@@ -1,40 +1,45 @@
 #include <stdio.h>
 
-// Desafio Batalha Naval - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de Batalha Naval.
-// Siga os comentários para implementar cada parte do desafio.
+int main (){
 
-int main() {
-    // Nível Novato - Posicionamento dos Navios
-    // Sugestão: Declare uma matriz bidimensional para representar o tabuleiro (Ex: int tabuleiro[5][5];).
-    // Sugestão: Posicione dois navios no tabuleiro, um verticalmente e outro horizontalmente.
-    // Sugestão: Utilize `printf` para exibir as coordenadas de cada parte dos navios.
+    int Tabuleiro [10][10] = {0}; //Matriz do tabuleiro 10x10 e inicialização em valor 0 (agua)
 
-    // Nível Aventureiro - Expansão do Tabuleiro e Posicionamento Diagonal
-    // Sugestão: Expanda o tabuleiro para uma matriz 10x10.
-    // Sugestão: Posicione quatro navios no tabuleiro, incluindo dois na diagonal.
-    // Sugestão: Exiba o tabuleiro completo no console, mostrando 0 para posições vazias e 3 para posições ocupadas.
+    char letras[10] = {'A','B','C','D','E','F','G','H','I', 'J'}; //Vetor das Letras do tabuleiro
 
-    // Nível Mestre - Habilidades Especiais com Matrizes
-    // Sugestão: Crie matrizes para representar habilidades especiais como cone, cruz, e octaedro.
-    // Sugestão: Utilize estruturas de repetição aninhadas para preencher as áreas afetadas por essas habilidades no tabuleiro.
-    // Sugestão: Exiba o tabuleiro com as áreas afetadas, utilizando 0 para áreas não afetadas e 1 para áreas atingidas.
+    //Navios
+        //Navio1
+        for (int i = 1; i < 4; i++){ //Define o Loop para Navio1
+            Tabuleiro [i][9] = 3; //Insere Navio1 em J2 a J4
+        }
+        //Navio2
+        for (int j = 1; j < 4; j++){ //Define o Loop de Navio2
+            Tabuleiro [5][j] = 3; //Insere o navio2 em B6 a D6
+        }
 
-    // Exemplos de exibição das habilidades:
-    // Exemplo para habilidade em cone:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 1 1 1 1 1
-    
-    // Exemplo para habilidade em octaedro:
-    // 0 0 1 0 0
-    // 0 1 1 1 0
-    // 0 0 1 0 0
+    //Tabuleiro = Matriz 10x10 e exibição
+        printf ("TABULEIRO BATALHA NAVAL \n"); // Exibe uma mensagem de apresentação do tabuleiro
+        printf (" "); // Adiciona um espaço em branco para posteriormente imprimir a primeira coordenada ('A') espaçada
 
-    // Exemplo para habilidade em cruz:
-    // 0 0 1 0 0
-    // 1 1 1 1 1
-    // 0 0 1 0 0
+        for (int i = 0; i < 10; i++){ //Cria o Loop que incrementa i de 0 a 9 (i < 10). i será usado para representar as coordenadas verticais (colunas)
+            
+            printf (" %c", letras[i]); // A medida que i incrementa, é impresso - fora da grade 10x10 - o valor equivalente ao indice na "char letras [10]"
+        }
+
+        printf ("\n"); //Adiciona uma quebra de linha para apresentar a grade do tabuleiro
+
+        //Grade    
+        int linhas [10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; //Declaração da variavel linhas para os numeros das coordenadas horizontais
+                
+        for (int i = 0; i < 10; i++) { //Cria um novo Loop que incrementa i de 0 a 9. i será usado para representar as coordenadas horizontais (linhas) 
+
+            printf ("%2d", linhas [i]); // Define que esse i é o paramentro para imprimir os valores de "int linhas [10]" tal como i acima
+
+            for (int j = 0; j < 10; j++){ //Cria o Loop para exibição da grade i = linha j = coluna
+            printf (" %d", Tabuleiro [i][j]); //Exibe a grade 
+            }
+            printf ("\n");
+
+            }
 
     return 0;
 }
